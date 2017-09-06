@@ -1,0 +1,32 @@
+{
+  "intents": [
+    {
+      "intent": "scoreCheck",
+      "slots": [
+        {
+          "name": "Date",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "Team",
+          "type": "LIST_OF_TEAMS"
+        }
+      ]
+    },
+    {
+      "intent": "teamList"
+    },
+    {
+      "intent": "greetingHelp"
+    },
+    {
+      "intent": "stop"
+    },
+    {
+      "intent": "cancel"
+    },
+    {
+      "intent": "stop_cancel"
+    }
+  ]
+}

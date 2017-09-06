@@ -1,0 +1,12 @@
+scoreCheck check the {Team} on {Date}
+scoreCheck check the {Team} score on {Date}
+scoreCheck check the {Team} {Date}
+scoreCheck check the {Team} score {Date}
+scoreCheck check the {Team} score from {Date}
+scoreCheck check the {Team} score for {Date}
+scoreCheck {Team} {Date}
+teamList team list
+greetingHelp help
+stop stop
+cancel cancel
+stop_cancel stop cancel
