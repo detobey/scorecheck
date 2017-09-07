@@ -20,13 +20,7 @@
       "intent": "greetingHelp"
     },
     {
-      "intent": "stop"
-    },
-    {
-      "intent": "cancel"
-    },
-    {
-      "intent": "stop_cancel"
+      "intent": "stopCancel"
     }
   ]
 }

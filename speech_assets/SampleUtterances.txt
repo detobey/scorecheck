@@ -1,12 +1,15 @@
-scoreCheck check the {Team} on {Date}
 scoreCheck check the {Team} score on {Date}
 scoreCheck check the {Team} {Date}
 scoreCheck check the {Team} score {Date}
 scoreCheck check the {Team} score from {Date}
 scoreCheck check the {Team} score for {Date}
+scoreCheck look up {Team} on {Date}
+scoreCheck look up the {Team} on {Date}
+scoreCheck look up {Team} {Date}
+scoreCheck look up the {Team} {Date}
 scoreCheck {Team} {Date}
 teamList team list
 greetingHelp help
-stop stop
-cancel cancel
-stop_cancel stop cancel
+stopCancel stop
+stopCancel cancel
+stopCancel quit
