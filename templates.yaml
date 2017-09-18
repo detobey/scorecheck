@@ -19,6 +19,10 @@ no_game_look_up: There was no game played on that day. Please check again.
 
 bad_date: Sorry, I didn't recognize that date. Try using specific dates like May 6 2017.
 
+bad_input: |
+    Sorry, I didn't understand that request. Tell me a team and date, for instance 'Check the Tigers score on April 28 2013'.
+    You can also say 'TEAM LIST' for a list of Major League Baseball teams, or 'HELP' for help.
+
 team_list: |
   I can track the following teams: Angels, Astros, Athletics, Blue Jays, Braves, Brewers, Cardinals, Cubs, Diamondbacks,
   Dodgers, Giants, Indians, Mariners, Marlins, Mets, Nationals, Orioles, Padres, Phillies, Pirates, Rangers, Rays,
@@ -29,5 +33,4 @@ bad_team: |
   Dodgers, Giants, Indians, Mariners, Marlins, Mets, Nationals, Orioles, Padres, Phillies, Pirates, Rangers, Rays,
   Red Sox, Reds, Rockies, Royals, Tigers, Twins, White Sox, and Yankees.
 
-stop_cancel: |
-  Thank you for using Baseball Score Check.
+stop_cancel: Goodbye!

@@ -8,8 +8,17 @@ scoreCheck look up the {Team} on {Date}
 scoreCheck look up {Team} {Date}
 scoreCheck look up the {Team} {Date}
 scoreCheck {Team} {Date}
+scoreCheck check the {City} {Team} score on {Date}
+scoreCheck check the {City} {Team} {Date}
+scoreCheck check the {City} {Team} score {Date}
+scoreCheck check the {City} {Team} score from {Date}
+scoreCheck check the {City} {Team} score for {Date}
+scoreCheck look up {City} {Team} on {Date}
+scoreCheck look up the {City} {Team} on {Date}
+scoreCheck look up {City} {Team} {Date}
+scoreCheck look up the {City} {Team} {Date}
+scoreCheck {City} {Team} {Date}
 teamList team list
-greetingHelp help
-stopCancel stop
-stopCancel cancel
-stopCancel quit
+teamList what teams are there
+teamList what are the teams
+teamList list teams

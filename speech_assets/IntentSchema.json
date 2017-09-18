@@ -1,26 +1,36 @@
 {
   "intents": [
     {
-      "intent": "scoreCheck",
       "slots": [
         {
           "name": "Date",
           "type": "AMAZON.DATE"
         },
         {
+          "name": "City",
+          "type": "AMAZON.US_CITY"
+        },
+        {
           "name": "Team",
           "type": "LIST_OF_TEAMS"
         }
-      ]
+      ],
+      "intent": "scoreCheck"
+    },
+    {
+      "intent": "badInput"
     },
     {
       "intent": "teamList"
     },
     {
-      "intent": "greetingHelp"
+      "intent": "AMAZON.HelpIntent"
     },
     {
-      "intent": "stopCancel"
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
     }
   ]
 }

@@ -24,7 +24,7 @@ from flask_ask import Ask, statement, question, session
 app = Flask(__name__)
 ask = Ask(app, "/")
 
-'''Important variable that is used across functions.'''
+'''Important variables used across functions.'''
 games = None
 team_list = open("./speech_assets/customSlotTypes/LIST_OF_TEAMS", "r").read().split('\n')
 
@@ -94,18 +94,28 @@ def scoreCheck(user_date, team):
         bad_date = render_template('bad_date')
         return question(bad_date)
 
+@ask.intent("badInput")
+def badInput():
+    bad_input = render_template('bad_input')
+    return question(bad_input)
+
 @ask.intent("teamList")
 def teamList():
     team_list = render_template('team_list')
     return question(team_list)
 
-@ask.intent("stopCancel")
-def stopCancel():
+@ask.intent('AMAZON.StopIntent')
+def handle_stop():
     stop_cancel = render_template('stop_cancel')
     return statement(stop_cancel)
 
-@ask.intent("greetingHelp")
-def greetingHelp():
+@ask.intent('AMAZON.CancelIntent')
+def handle_cancel():
+    stop_cancel = render_template('stop_cancel')
+    return statement(stop_cancel)
+
+@ask.intent('AMAZON.HelpIntent')
+def handle_help():
     greeting_help = render_template('greeting_help')
     return question(greeting_help)
 
@@ -113,3 +123,4 @@ def greetingHelp():
 if __name__ == "__main__":
     app.config['ASK_VERIFY_REQUESTS'] = False
     app.run()
+
