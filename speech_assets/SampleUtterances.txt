@@ -18,7 +18,6 @@ scoreCheck look up the {City} {Team} on {Date}
 scoreCheck look up {City} {Team} {Date}
 scoreCheck look up the {City} {Team} {Date}
 scoreCheck {City} {Team} {Date}
-teamList team list
-teamList what teams are there
-teamList what are the teams
-teamList list teams
+badInput anything
+badInput any thing
+teamList teams
