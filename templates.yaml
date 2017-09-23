@@ -8,6 +8,7 @@ greeting_help: |
   For example, 'Tigers April 28 2013'.
   For a list of Major League Baseball teams, say 'TEAMS'.
   To hear this message again, say 'HELP'.
+  To exit this skill, say 'STOP'.
 
 lookup_prompt: Tell me a team and date. For instance, 'Tigers April 28 2013'.
 

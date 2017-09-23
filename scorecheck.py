@@ -73,10 +73,10 @@ def scoreCheck(user_date, team):
                     no_game_look_up = render_template('no_game_look_up')
                     return question(no_game_look_up)
                 elif win_team == team.title():
-                    game_info = 'The ' + team.title() + ' won. The final score was ' + str(game) + '. The winning pitcher was ' + str(games[0].w_pitcher) + ' of the ' + str(games[0].w_team) + '.'
+                    game_info = 'The ' + team.title() + ' won. The final score was ' + str(game) + '. The winning pitcher was ' + str(games[0].w_pitcher) + ' of the ' + str(games[0].w_team) + '. Please CHECK another team and date, or say STOP to stop.'
                     return question(game_info)
                 elif win_team != team.title():
-                    game_info = 'The ' + team.title() + ' lost. The final score was ' + str(game) + '. The winning pitcher was ' + str(games[0].w_pitcher) + ' of the ' + str(games[0].w_team) + '.'
+                    game_info = 'The ' + team.title() + ' lost. The final score was ' + str(game) + '. The winning pitcher was ' + str(games[0].w_pitcher) + ' of the ' + str(games[0].w_team) + '. Please CHECK another team and date, or say STOP to stop.'
                     return question(game_info)
 
     except OSError:
