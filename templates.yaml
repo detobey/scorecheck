@@ -10,15 +10,15 @@ greeting_help: |
   To hear this message again, say 'HELP'.
   To exit this skill, say 'STOP'.
 
-lookup_prompt: Tell me a team and date. For instance, 'Tigers April 28 2013'.
+lookup_prompt: Tell me a team and date. For instance, 'Tigers April 28 2013'. You can also say 'HELP' for help, or 'STOP' to end.
 
 out_of_date: |
   Sorry, I only keep scores back to the 2005 season, starting on April 3 2005.
-  Please check again.
+  Please 'CHECK' a team and date again. You can also say 'HELP' for help, or 'STOP' to end.
 
-no_game_look_up: There was no game played on that day. Please check again.
+no_game_look_up: There was no game played on that day. Please 'CHECK' a team and date again. You can also say 'HELP' for help, or 'STOP' to end.
 
-bad_date: Sorry, I didn't recognize that date. Try using specific dates like May 6 2017.
+bad_date: Sorry, I didn't recognize that date. Try using specific dates like May 6 2017. Please 'CHECK' a team and date again. You can also say 'HELP' for help, or 'STOP' to end.
 
 bad_input: |
     Sorry, I didn't understand that request. Tell me a team and date, for instance 'Check the Tigers score on April 28 2013'.
@@ -27,11 +27,13 @@ bad_input: |
 team_list: |
   I can track the following teams: Angels, Astros, Athletics, Blue Jays, Braves, Brewers, Cardinals, Cubs, Diamondbacks,
   Dodgers, Giants, Indians, Mariners, Marlins, Mets, Nationals, Orioles, Padres, Phillies, Pirates, Rangers, Rays,
-  Red Sox, Reds, Rockies, Royals, Tigers, Twins, White Sox, and Yankees.
+  Red Sox, Reds, Rockies, Royals, Tigers, Twins, White Sox, and Yankees. Please 'CHECK' a team and date.
+  You can also say 'HELP' for help, or 'STOP' to end.
 
 bad_team: |
   Sorry, I didn't recognize that team. I can track the following teams: Angels, Astros, Athletics, Blue Jays, Braves, Brewers, Cardinals, Cubs, Diamondbacks,
   Dodgers, Giants, Indians, Mariners, Marlins, Mets, Nationals, Orioles, Padres, Phillies, Pirates, Rangers, Rays,
-  Red Sox, Reds, Rockies, Royals, Tigers, Twins, White Sox, and Yankees.
+  Red Sox, Reds, Rockies, Royals, Tigers, Twins, White Sox, and Yankees. Please 'CHECK' a team and date.
+  You can also say 'HELP' for help, or 'STOP' to end.
 
 stop_cancel: Goodbye!

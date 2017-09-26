@@ -21,3 +21,4 @@ scoreCheck {City} {Team} {Date}
 badInput anything
 badInput any thing
 teamList teams
+teamList team list
