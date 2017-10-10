@@ -6,6 +6,7 @@ greeting_help: |
   I have scores for every game from the 2005 season onwards.
   Just tell me a team and date.
   For example, 'Tigers April 28 2013'.
+  Or 'Check the Arizona Diamondbacks yesterday'.
   For a list of Major League Baseball teams, say 'TEAMS'.
   To hear this message again, say 'HELP'.
   To exit this skill, say 'STOP'.

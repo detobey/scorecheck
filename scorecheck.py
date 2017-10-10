@@ -1,10 +1,10 @@
-#-------------------------------------------------#
+# -------------------------------------------------#
 # Title: Baseball Score Check
 # Dev:   David Tobey
 # Date:  9/5/2017
 # ChangeLog: (Who, When, What)
 # DT, 9-5, beta launch
-#-------------------------------------------------#
+# -------------------------------------------------#
 
 #### Summary
 '''This Alexa skill returns the score of any game and its pitcher W/L back to 2005.
@@ -24,9 +24,13 @@ from flask_ask import Ask, statement, question, session
 app = Flask(__name__)
 ask = Ask(app, "/")
 
-'''Important variables used across functions.'''
+'''Important variable that is used across functions.'''
+global games
+global team
 games = None
+team = None
 team_list = open("./speech_assets/customSlotTypes/LIST_OF_TEAMS", "r").read().split('\n')
+
 
 #### Classes & Methods
 @ask.launch
@@ -36,48 +40,55 @@ def launchSkill():
     greeting_help = render_template('greeting_help')
     return question(greeting).reprompt(greeting_help)
 
+
 @ask.intent("scoreCheck",
-            mapping = {'user_date': 'Date', 'team': 'Team'},
-            convert = {'user_date': 'date'})
+            mapping={'user_date': 'Date', 'team': 'Team'},
+            convert={'user_date': 'date'})
 def scoreCheck(user_date, team):
+    if team == 'diamondbacks':
+        team = 'd-backs'
+
+    if len(str(user_date)) == 0:
+        '''Captures missing date requests'''
+        bad_date = render_template('bad_date')
+        return question(bad_date)
+
+    if isinstance(user_date, datetime.date) is not True:
+        '''Tests whether the user_date is a valid date'''
+        bad_date = render_template('bad_date')
+        return question(bad_date)
+
+    if team.capitalize() not in team_list:
+        '''Tests whether an accurate team name was given'''
+        bad_team = render_template('bad_team')
+        return question(bad_team)
+
+    if user_date < datetime.datetime.strptime('2005-04-03', "%Y-%m-%d").date():
+        out_of_date = render_template('out_of_date')
+        return question(out_of_date)
+
     try:
-        if len(str(user_date)) == 0:
-            '''Captures missing date requests'''
-            bad_date = render_template('bad_date')
-            return question(bad_date)
+        '''The scoreCheck() function accepts a team name and spoken date from the user, converts the month name to a
+        number (because mlbgame requires integer dates), and returns the game score.'''
+        _year = user_date.year
+        _month = user_date.month
+        _day = user_date.day
 
-        elif isinstance(user_date, datetime.date) is not True:
-            '''Tests whether the user_date is a valid date'''
-            bad_date = render_template('bad_date')
-            return question(bad_date)
-
-        elif team.title() not in team_list:
-            '''Tests whether an accurate team name was given'''
-            bad_team = render_template('bad_team')
-            return question(bad_team)
-
-        else:
-            '''The scoreCheck() function accepts a team name and spoken date from the user, converts the month name to a
-            number (because mlbgame requires integer dates), and returns the game score.'''
-            _year = user_date.year
-            _month = user_date.month
-            _day = user_date.day
-
-            global games
-            games = mlbgame.day(_year, _month, _day, away=team.title(), home=team.title())
-            win_team = games[0].w_team
-            win_pitcher = 'The winning pitcher was %s of the %s.' % (games[0].w_pitcher, games[0].w_team)
-            for game in games:
-                if len(games) == 0:
-                    '''mlbgame() returns data in a dictionary. If there is no game, the dictionary will be empty.'''
-                    no_game_look_up = render_template('no_game_look_up')
-                    return question(no_game_look_up)
-                elif win_team == team.title():
-                    game_info = 'The ' + team.title() + ' won. The final score was ' + str(game) + '. The winning pitcher was ' + str(games[0].w_pitcher) + ' of the ' + str(games[0].w_team) + '. Please CHECK another team and date, or say STOP to stop.'
-                    return question(game_info)
-                elif win_team != team.title():
-                    game_info = 'The ' + team.title() + ' lost. The final score was ' + str(game) + '. The winning pitcher was ' + str(games[0].w_pitcher) + ' of the ' + str(games[0].w_team) + '. Please CHECK another team and date, or say STOP to stop.'
-                    return question(game_info)
+        global games
+        games = mlbgame.day(_year, _month, _day, away=team.capitalize(), home=team.capitalize())
+        win_team = games[0].w_team
+        win_pitcher = 'The winning pitcher was %s of the %s.' % (games[0].w_pitcher, games[0].w_team)
+        for game in games:
+            if len(games) == 0:
+                '''mlbgame() returns data in a dictionary. If there is no game, the dictionary will be empty.'''
+                no_game_look_up = render_template('no_game_look_up')
+                return question(no_game_look_up)
+            elif win_team == team.capitalize():
+                game_info = 'The ' + team.capitalize() + ' won. The final score was ' + str(game) + '. The winning pitcher was ' + str(games[0].w_pitcher) + ' of the ' + str(games[0].w_team) + '. Please CHECK another team and date, or say STOP to stop.'
+                return question(game_info)
+            elif win_team != team.capitalize():
+                game_info = 'The ' + team.capitalize() + ' lost. The final score was ' + str(game) + '. The winning pitcher was ' + str(games[0].w_pitcher) + ' of the ' + str(games[0].w_team) + '. Please CHECK another team and date, or say STOP to stop.'
+                return question(game_info)
 
     except OSError:
         '''Returned if the user asked for a date before 2005'''
@@ -86,13 +97,8 @@ def scoreCheck(user_date, team):
 
     except IndexError:
         '''Rarely returned if the user asked for a date before 2005'''
-        out_of_date = render_template('out_of_date')
+        out_of_date = render_template('no_game_look_up')
         return question(out_of_date)
-
-    except AttributeError:
-        '''Returned if the user asked for a nonsensical date ('the day before six weeks ago tomorrow') '''
-        bad_date = render_template('bad_date')
-        return question(bad_date)
 
 @ask.intent("badInput")
 def badInput():
@@ -106,6 +112,9 @@ def teamList():
 
 @ask.intent('AMAZON.StopIntent')
 def handle_stop():
+    """
+    (STATEMENT) Handles the 'stop' built-in intention.
+    """
     stop_cancel = render_template('stop_cancel')
     return statement(stop_cancel)
 
@@ -123,4 +132,3 @@ def handle_help():
 if __name__ == "__main__":
     app.config['ASK_VERIFY_REQUESTS'] = False
     app.run()
-
