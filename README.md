@@ -20,4 +20,4 @@ The user input is validated five times before the request is passed to mlbgame. 
 > 4. If the user game a nonsensical team, the user is prompted for a valid team or the team list
 > 5. If the user requested a date < the 2005 season, the user is prompted for a date >= 2005
 
-This skill and its codebase is available free of charge. If you'd like to feature or reuse any part of my code or skill (caveat emptor - I am a new python programmer!), please credit me and pay it forward by helping other Python developers grow the flask-ask community. - David Tobey
+This skill and its codebase is available free of charge. If you'd like to feature or reuse any part of my code or skill (caveat emptor - I'm new to Python), please credit me and pay it forward by helping other Python developers grow the flask-ask community. - David Tobey
