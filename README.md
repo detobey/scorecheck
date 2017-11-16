@@ -1,4 +1,6 @@
-# baseball score check
+
+![picture](speech_assets/theking.jpg)
+# Baseball Score Check
 
 > [Baseball Score Check](https://www.amazon.com/gp/product/B075DL156N?ie=UTF8&ref-suffix=ss_rw) is your major league scorecard on Alexa! Tell Alexa to 'Open Baseball Scorecheck' then ask for any team and date back to the 2005 season. For instance, ask 'Alexa, check the Mariners score June 2 2016'. For help, say 'HELP'. For a complete team list, say 'TEAM LIST'.
 
