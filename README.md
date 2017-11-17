@@ -12,10 +12,10 @@ This Alexa skill permits the user to retrieve the score and winning pitcher for 
 
 User input is validated five times before the request is passed:
 
-> 1. If the user askes for the 'Diamondbacks', the skill converts the teamname to 'd-backs'
+> 1. If the user asks for the 'Diamondbacks', the skill converts the teamname to 'd-backs'
 > 2. If the user did not give a date, the user is prompted for a date
 > 3. If the user gave a nonsensical date, the user is prompted for a valid date
-> 4. If the user game a nonsensical team, the user is prompted for a valid team or the team list
+> 4. If the user gave a nonsensical team, the user is prompted for a valid team or the team list
 > 5. If the user requested a date < the 2005 season, the user is prompted for a date >= 2005
 
 Baseball Score Check is my first Alexa skill, completed in October 2017. It is written in Python on the [flask-ask](https://github.com/johnwheeler/flask-ask) framework. I am grateful for the help and patience of John Wheeler and the community he has built around his extension. I am also indebted to the [mlbgame](https://github.com/panzarino/mlbgame) library, developed by [Zach Panzarino](http://panz.io/), that powers the skill's baseball gamestat retrieval.
