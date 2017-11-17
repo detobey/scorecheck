@@ -4,13 +4,13 @@
 
 > [Baseball Score Check](https://www.amazon.com/gp/product/B075DL156N?ie=UTF8&ref-suffix=ss_rw) is your major league scorecard on Alexa! Tell Alexa to 'Open Baseball Score Check' then ask for any team and date back to the 2005 season. For instance, ask 'Alexa, check the Mariners score June 2 2016'. For help, say 'HELP'. For a complete team list, say 'TEAM LIST'.
 
-This Alexa skill permits the user to retrieve the score and winning pitcher for any baseball game played, back to the 2005 season.
+This Alexa skill permits the user to retrieve the score and winning pitcher for any baseball game played, back to the 2005 season. Scores are retrieved by the mlbgame library.
 
 > * "Alexa, check the Mariners score yesterday"
 > * "Alexa, check the Seattle Mariners score on August 15, 2012"
 > * "Alexa, Mariners last week"
 
-The user input is validated five times before the request is passed to mlbgame. In order:
+User input is validated five times before the request is passed:
 
 > 1. If the user askes for the 'Diamondbacks', the skill converts the teamname to 'd-backs'
 > 2. If the user did not give a date, the user is prompted for a date
